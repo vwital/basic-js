@@ -25,7 +25,7 @@ const { NotImplementedError } = require("../extensions/index.js");
 function getDNSStats(/* domains */) {
   throw new NotImplementedError("Not implemented");
   // remove line with error and write your code here
-  // reduce + map которые возвращают объект 
+  // reduce + map которые возвращают объект
 }
 
 module.exports = {
