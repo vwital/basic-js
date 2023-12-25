@@ -46,7 +46,6 @@ function getDNSStats(domains) {
   // arr.forEach((el) => {
   //   if (el.length > longest.length) longest = el;
   // });
-
   // function getDns(colichestvoOtKonca) {
   //   for (
   //     let i = longest.length - 1;
@@ -56,9 +55,7 @@ function getDNSStats(domains) {
   //     let value = longest[longest.length - colichestvoOtKonca];
   //   }
   // }
-
   // return salyanka;
-
   //   let dom = {};
   //   let repCount = 0;
   //   let curDom = "";
@@ -75,47 +72,46 @@ function getDNSStats(domains) {
   //     dom[value] = repCount;
   //   });
   //   return dom;
-
-  let longest = [];
-  let finalObj = {};
-  let hasOtherLong = true;
-  let str = "";
-  let counter = 1;
-  let strDom = [];
-  domains.forEach((el) => strDom.push(el.split(".")));
-  domains.forEach((el) => {
-    if (el.split(".").length > longest.length) longest = el.split(".");
-  });
-  function getDns(value) {
-    for (let i = value.length - 1; i >= 0; i--) {
-      str = str + "." + value[i];
-      strDom.forEach((el) => {
-        console.log("EL", el);
-        console.log("value", value);
-        if (el.includes(value)) counter++;
-      });
-    }
-    finalObj[str] = counter;
-    str = "";
-    counter = 1;
-  }
-  getDns(longest);
-  function checkOtherDomains() {
-    domains.forEach((el) => {
-      if (el.split(".").length == longest.length && longest !== el.split(".")) {
-        longest = el.split(".");
-      } else {
-        hasOtherLong = false;
-      }
-    });
-    getDns(longest);
-  }
-  while (hasOtherLong) {
-    checkOtherDomains();
-  }
-  longest.shift();
-  getDns(longest);
-  return finalObj;
+  // let longest = [];
+  // let finalObj = {};
+  // let hasOtherLong = true;
+  // let str = "";
+  // let counter = 1;
+  // let strDom = [];
+  // domains.forEach((el) => strDom.push(el.split(".")));
+  // domains.forEach((el) => {
+  //   if (el.split(".").length > longest.length) longest = el.split(".");
+  // });
+  // function getDns(value) {
+  //   for (let i = value.length - 1; i >= 0; i--) {
+  //     str = str + "." + value[i];
+  //     strDom.forEach((el) => {
+  //       console.log("EL", el);
+  //       console.log("value", value);
+  //       if (el.includes(value)) counter++;
+  //     });
+  //   }
+  //   finalObj[str] = counter;
+  //   str = "";
+  //   counter = 1;
+  // }
+  // getDns(longest);
+  // function checkOtherDomains() {
+  //   domains.forEach((el) => {
+  //     if (el.split(".").length == longest.length && longest !== el.split(".")) {
+  //       longest = el.split(".");
+  //     } else {
+  //       hasOtherLong = false;
+  //     }
+  //   });
+  //   getDns(longest);
+  // }
+  // while (hasOtherLong) {
+  //   checkOtherDomains();
+  // }
+  // longest.shift();
+  // getDns(longest);
+  // return finalObj;
 }
 
 domains = ["code.yandex.ru", "music.yandex.ru", "yandex.ru"];
