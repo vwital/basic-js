@@ -22,11 +22,14 @@ function renameFiles(names) {
     if (!resultNames.includes(name)) {
       resultNames.push(name);
     } else {
-      name = `${name}(${repeatCounter++})`;
+      if (repeatCounter > 1)
+        name = name.slice(0, -3) + "(" + repeatCounter + ")";
+      else {
+        name = name + "(" + repeatCounter + ")";
+      }
       repeatCounter++;
       rename(name);
     }
-    //&& names.includes(name)
   }
   names.forEach((el) => {
     rename(el);
@@ -34,8 +37,6 @@ function renameFiles(names) {
   });
   return resultNames;
 }
-
-console.log(renameFiles(["file", "file", "image", "file(1)", "file"]));
 
 module.exports = {
   renameFiles,
