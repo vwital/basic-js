@@ -16,18 +16,21 @@ class DepthCalculator {
   constructor() {
     this.depth = 0;
     this.maxDepth = 1;
+    this.arr = [];
   }
   calculateDepth(arr) {
-    this.depth++;
     for (let i = 0; i < arr.length; i++) {
       if (arr[i] instanceof Array) {
+        this.arr.push("22");
+        this.depth++;
         this.calculateDepth(arr[i]);
       }
-      if (this.depth > this.maxDepth) {
-        this.maxDepth = this.depth;
-        this.depth = 1;
-      }
     }
+    if (this.depth > this.maxDepth) {
+      this.maxDepth = this.depth;
+      this.depth = 1;
+    }
+    console.log(this.arr);
     return this.maxDepth;
   }
 }
@@ -35,6 +38,7 @@ class DepthCalculator {
 const depthCalc = new DepthCalculator();
 // console.log(depthCalc.calculateDepth([1, 2, 3, 4, 5]));
 console.log(depthCalc.calculateDepth([1, 2, 3, [4, 5]]));
+console.log(depthCalc.calculateDepth([[[]]]));
 console.log(
   depthCalc.calculateDepth([
     1,
