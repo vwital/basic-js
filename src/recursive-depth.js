@@ -28,7 +28,6 @@ class DepthCalculator {
         this.depth = 1;
       }
     }
-
     return this.maxDepth;
   }
 }
@@ -80,7 +79,6 @@ console.log(
 //     [1, [[[[[[]]]]]]],
 //   ])
 // );
-
 module.exports = {
   DepthCalculator,
 };
